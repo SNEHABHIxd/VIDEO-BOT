@@ -48,41 +48,38 @@ async def _human_time_duration(seconds):
 
 
 @Client.on_message(
-    command(["start", f"start@{BOT_USERNAME}"]) & filters.private & ~filters.edited
+    command(["start", f"start@SNEHABHI_VIDEOBOT"]) & filters.private & ~filters.edited
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""✨ **Welcome {message.from_user.mention()} !**\n
-💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **allows you to play music and video on groups through the new Telegram's video chats!**
+        f"""✨ **𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝙸'𝙼 𝚂𝙽𝙴𝙷𝙰𝙱𝙷𝙸 𝚅𝙸𝙳𝙴𝙾 𝙿𝙻𝙰𝚈𝙴𝚁 !**\n
+💭 [𝚂𝙽𝙴𝙷𝙰𝙱𝙷𝙸 𝚅𝙸𝙳𝙴𝙾 𝙿𝙻𝙰𝚈𝙴𝚁](https://t.me/SNEHABHI_VIDEOBOT) **𝙰𝙻𝙻𝙾𝚆𝚂 𝚃𝙾 𝙿𝙻𝙰𝚈 𝚅𝙸𝙳𝙴𝙾 𝙾𝙽 𝙶𝚁𝙾𝚄𝙿'𝚂 𝚅𝙸𝙳𝙴𝙾 𝙲𝙷𝙰𝚃!**
 
-💡 **Find out all the Bot's commands and how they work by clicking on the » 📚 Commands button!**
-
-🔖 **To know how to use this bot, please click on the » ❓ Basic Guide button!**
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group ➕",
-                        url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
+                        "𝙶𝚁𝙾𝚄𝙿 𝙼𝙴 𝙳𝙰𝙻 𝙳𝙴 𝙳𝙴𝙺𝙷 𝙼𝚃",
+                        url=f"https://t.me/SNEHABHI_VIDEOBOT?startgroup=true",
                     )
                 ],
                 [InlineKeyboardButton("❓ Basic Guide", callback_data="cbhowtouse")],
                 [
                     InlineKeyboardButton("📚 Commands", callback_data="cbcmds"),
-                    InlineKeyboardButton("❤️ Donate", url=f"https://t.me/{OWNER_NAME}"),
+                    InlineKeyboardButton("❤️ Donate", url=f"https://t.me/ABHI_IZ_MINE"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "𝙹𝙾𝙸𝙽 𝚂𝚄𝙿𝙿𝙾𝚁𝚃", url=f"https://t.me/SNEHABHI_SERVER"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "𝙹𝙾𝙸𝙽 𝙲𝙷𝙰𝙽𝙽𝙴𝙻", url=f"https://t.me/SNEHABHI_UPDATES"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "🌐 Source Code", url="https://github.com/levina-lab/video-stream"
+                        "𝚁𝙴𝙿𝙾𝚂𝙸𝚃𝙾𝚁𝚈", "𝙹𝙾𝙸𝙽 @SNEHABHI_UPDATES 𝚁𝙴𝙿𝙾 𝙿𝚄𝙱𝙻𝙸𝙲 𝚂𝙾𝙾𝙽"
                     )
                 ],
             ]
@@ -92,7 +89,7 @@ async def start_(client: Client, message: Message):
 
 
 @Client.on_message(
-    command(["alive", f"alive@{BOT_USERNAME}"]) & filters.group & ~filters.edited
+    command(["alive", f"alive@SNEHABHI_VIDEOBOT"]) & filters.group & ~filters.edited
 )
 async def alive(client: Client, message: Message):
     current_time = datetime.utcnow()
@@ -102,15 +99,15 @@ async def alive(client: Client, message: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("✨ Group", url=f"https://t.me/{GROUP_SUPPORT}"),
+                InlineKeyboardButton("𝙹𝙾𝙸𝙽 𝚂𝚄𝙿𝙿𝙾𝚁𝚃", url=f"https://t.me/SNEHABHI_SERVER"),
                 InlineKeyboardButton(
-                    "📣 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    "𝙹𝙾𝙸𝙽 𝙲𝙷𝙰𝙽𝙽𝙴𝙻", url=f"https://t.me/SNEHABHI_UPDATES"
                 ),
             ]
         ]
     )
 
-    alive = f"**Hello {message.from_user.mention()}, i'm {BOT_NAME}**\n\n✨ Bot is working normally\n🍀 My Master: [{ALIVE_NAME}](https://t.me/{OWNER_NAME})\n✨ Bot Version: `v{__version__}`\n🍀 Pyrogram Version: `{pyrover}`\n✨ Python Version: `{__python_version__}`\n🍀 PyTgCalls version: `{pytover.__version__}`\n✨ Uptime Status: `{uptime}`\n\n**Thanks for Adding me here, for playing video & music on your Group video chat** ❤"
+    alive = f"**𝙷𝙴𝙻𝙻𝙾 {message.from_user.mention()}, i'm 𝚂𝙽𝙴𝙷𝙰𝙱𝙷𝙸 𝚅𝙸𝙳𝙴𝙾 𝙿𝙻𝙰𝚈𝙴𝚁**\n\n✨ 𝙱𝙾𝚃 𝙸𝚂 𝚆𝙾𝚁𝙺𝙸𝙽𝙶 𝚂𝙼𝙾𝙾𝚃𝙷𝙻𝚈\n🍀 𝙼𝚈 𝙾𝚆𝙽𝙴𝚁: [✨𝚂𝙽𝙴𝙷𝙰𝙱𝙷𝙸 𝙾𝚆𝙽𝙴𝚁 💫](https://t.me/SNEHABHI_KING)\n✨ 𝙱𝙾𝚃 𝚅𝙴𝚁𝚂𝙸𝙾𝙽: `v{__version__}`\n🍀 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼 𝚅𝙴𝚁𝚂𝙸𝙾𝙽: `{pyrover}`\n✨ 𝙿𝙷𝚈𝚃𝙷𝙾𝙽 𝚅𝙴𝚁𝚂𝙸𝙾𝙽: `{__python_version__}`\n🍀 𝙿𝚈𝚃𝙶𝙲𝙰𝙻𝙻𝚂 𝚅𝙴𝚁𝚂𝙸𝙾𝙽: `{pytover.__version__}`\n✨ 𝚄𝙿𝚃𝙸𝙼𝙴 𝚂𝚃𝙰𝚃𝚄𝚂: `{uptime}`\n\n**𝚃𝙷𝙰𝙽𝙺𝚂 𝙵𝙾𝚁 𝙰𝙳𝙳𝙸𝙽𝙶 𝚂𝙽𝙴𝙷𝙰𝙱𝙷𝙸 𝚅𝙸𝙳𝙴𝙾 𝙿𝙻𝙰𝚈𝙴𝚁 𝙹𝙾𝙸𝙽 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 @SNEHABHI_UPDATES** ❤"
 
     await message.reply_photo(
         photo=f"{ALIVE_IMG}",
@@ -119,21 +116,21 @@ async def alive(client: Client, message: Message):
     )
 
 
-@Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
+@Client.on_message(command(["ping", f"ping@SNEHABHI_VIDEOBOT"]) & ~filters.edited)
 async def ping_pong(client: Client, message: Message):
     start = time()
     m_reply = await message.reply_text("pinging...")
     delta_ping = time() - start
-    await m_reply.edit_text("🏓 `PONG!!`\n" f"⚡️ `{delta_ping * 1000:.3f} ms`")
+    await m_reply.edit_text("🏓 `𝙿𝙾𝙽𝙶 𝙹𝙾𝙸𝙽 @SNEHABHI_UPDATRS!`\n" f"⚡️ `{delta_ping * 1000:.3f} ms`")
 
 
-@Client.on_message(command(["uptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
+@Client.on_message(command(["uptime", f"uptime"]) & ~filters.edited)
 async def get_uptime(client: Client, message: Message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        "🤖 bot status:\n"
-        f"• **uptime:** `{uptime}`\n"
-        f"• **start time:** `{START_TIME_ISO}`"
+        "🤖𝙱𝙾𝚃 𝚂𝚃𝙰𝚃𝚄𝚂:\n"
+        f"• **𝚄𝙿𝚃𝙸𝙼𝙴:** `{uptime}`\n"
+        f"• **𝚂𝚃𝙰𝚁𝚃 𝚃𝙸𝙼𝙴:** `{START_TIME_ISO}`"
     )
