@@ -1,1 +1,1 @@
-worker: python3 main.py
+snehabhi: python3 snehabhi.py
