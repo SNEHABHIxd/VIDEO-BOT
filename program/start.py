@@ -64,11 +64,7 @@ async def start_(client: Client, message: Message):
                         url=f"https://t.me/SNEHABHI_VIDEOBOT?startgroup=true",
                     )
                 ],
-                [InlineKeyboardButton("❓ Basic Guide", callback_data="cbhowtouse")],
-                [
-                    InlineKeyboardButton("📚 Commands", callback_data="cbcmds"),
-                    InlineKeyboardButton("❤️ Donate", url=f"https://t.me/ABHI_IZ_MINE"),
-                ],
+                
                 [
                     InlineKeyboardButton(
                         "𝙹𝙾𝙸𝙽 𝚂𝚄𝙿𝙿𝙾𝚁𝚃", url=f"https://t.me/SNEHABHI_SERVER"
