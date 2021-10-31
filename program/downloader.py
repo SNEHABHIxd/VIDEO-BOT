@@ -35,10 +35,10 @@ ydl_opts = {
 }
 
 
-@Client.on_message(command(["song", f"song@{bn}"]) & ~filters.edited)
+@Client.on_message(command(["song", f"song@SNEHABHI_VIDEOBOT"]) & ~filters.edited)
 def song(_, message):
     query = " ".join(message.command[1:])
-    m = message.reply("🔎 finding song...")
+    m = message.reply("🔎 𝙵𝙸𝙽𝙳𝙸𝙽𝙶 𝚂𝙾𝙽𝙶...")
     ydl_ops = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -51,21 +51,21 @@ def song(_, message):
         duration = results[0]["duration"]
 
     except Exception as e:
-        m.edit("❌ song not found.\n\nplease give a valid song name.")
+        m.edit("❌ 𝚂𝙾𝙽𝙶 𝙽𝙰𝙷𝙸 𝙼𝙸𝙻𝙰.\n\n𝙿𝙻𝙴𝙰𝚂𝙴 𝙶𝙸𝚅𝙴 𝙼𝙴 𝙰 𝚅𝙰𝙻𝙸𝙳 𝚂𝙾𝙽𝙶.")
         print(str(e))
         return
-    m.edit("📥 downloading file...")
+    m.edit("📥 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙸𝙽𝙶 𝙵𝙸𝙻𝙴...")
     try:
         with yt_dlp.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"**🎧 Uploader @{bn}**"
+        rep = f"**🎧 𝚄𝙿𝙻𝙾𝙰𝙳𝙴𝚁 @SNEHABHI_UPDATES**"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
             secmul *= 60
-        m.edit("📤 uploading file...")
+        m.edit("📤 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶 𝙵𝙸𝙻𝙴...")
         message.reply_audio(
             audio_file,
             caption=rep,
@@ -76,7 +76,7 @@ def song(_, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❌ error, wait for bot owner to fix")
+        m.edit("❌ 𝙴𝚁𝚁𝙾𝚁, 𝚆𝙰𝙸𝚃 𝙱𝙾𝚃 𝙾𝚆𝙽𝙴𝚁 (@SNEHABHI_KING) 𝙵𝙾𝚁 𝚃𝙾 𝙵𝙸𝚇")
         print(e)
 
     try:
@@ -121,7 +121,7 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
         if file_name:
             try:
                 await message.edit(
-                    "{}\n**File Name:** `{}`\n{}".format(type_of_ps, file_name, tmp)
+                    "{}\n**𝙵𝙸𝙻𝙴 𝙽𝙰𝙼𝙴:** `{}`\n{}".format(type_of_ps, file_name, tmp)
                 )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
@@ -248,14 +248,14 @@ async def vsong(client, message):
     except Exception as e:
         print(e)
     try:
-        msg = await message.reply("📥 **downloading video...**")
+        msg = await message.reply("📥 **𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙸𝙽𝙶 𝚅𝙸𝙳𝙴𝙾 JOIN @SNEHABHI_UPDATES...**")
         with YoutubeDL(ydl_opts) as ytdl:
             ytdl_data = ytdl.extract_info(link, download=True)
             file_name = ytdl.prepare_filename(ytdl_data)
     except Exception as e:
-        return await msg.edit(f"🚫 **error:** {e}")
+        return await msg.edit(f"🚫 **𝙴𝚁𝚁𝙾𝚁:** {e}")
     preview = wget.download(thumbnail)
-    await msg.edit("📤 **uploading video...**")
+    await msg.edit("📤 **𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶 𝚅𝙸𝙳𝙴𝙾 JOIN @SNEHABHI_UPDATES...**")
     await message.reply_video(
         file_name,
         duration=int(ytdl_data["duration"]),
@@ -269,18 +269,18 @@ async def vsong(client, message):
         print(e)
 
 
-@Client.on_message(command(["lyric", f"lyric@{bn}"]))
+@Client.on_message(command(["lyric", f"lyric@SNEHABHI_VIDEOBOT"]))
 async def lyrics(_, message):
     try:
         if len(message.command) < 2:
-            await message.reply_text("» **give a lyric name too.**")
+            await message.reply_text("» **𝙶𝙸𝚅𝙴 𝙰 𝙻𝚈𝚁𝙸𝙲𝚂 𝙽𝙰𝙼𝙴 𝚃𝙾𝙾.**")
             return
         query = message.text.split(None, 1)[1]
-        rep = await message.reply_text("🔎 **searching lyrics...**")
+        rep = await message.reply_text("🔎 **𝚂𝙴𝙰𝚁𝙲𝙷𝙸𝙽𝙶 𝙻𝚈𝚁𝙸𝙲𝚂 JOIN @SNEHABHI_UPDATES...**")
         resp = requests.get(
             f"https://api-tede.herokuapp.com/api/lirik?l={query}"
         ).json()
         result = f"{resp['data']}"
         await rep.edit(result)
     except Exception:
-        await rep.edit("❌ **lyrics not found.**\n\n» **please give a valid song name.**")
+        await rep.edit("❌ **𝙻𝚈𝚁𝙸𝙲𝚂 𝙽𝙾𝚃 𝙵𝙾𝚄𝙽𝙳d.**\n\n» **𝙿𝙻𝙴𝙰𝚂𝙴 𝙶𝙸𝚅𝙴 𝙼𝙴 𝙰 𝚅𝙰𝙻𝙸𝙳 𝚂𝙾𝙽𝙶 𝙽𝙰𝙼𝙴.**")
