@@ -1,6 +1,6 @@
 import asyncio
 
-from driver.veez import bot, call_py
+from driver.snehabhi import bot, call_py
 from pytgcalls import idle
 
 
