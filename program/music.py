@@ -1,4 +1,4 @@
-# Copyright (C) 2021 By Veez Music-Project
+# Copyright (C) 2021 By SNEHABHI MUSIC PLAYER
 # Commit Start Date 20/10/2021
 # Finished On 28/10/2021
 
@@ -49,17 +49,17 @@ async def ytdl(link):
         return 0, stderr.decode()
 
 
-@Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["play", f"play@SNEHABHI_VIDEOBOT"]) & other_filters)
 async def play(_, m: Message):
 
     keyboard = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/SNEHABHI_SERVER"
                 ),
                 InlineKeyboardButton(
-                    text="🌻 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    text="🌻 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/SNEHABHI_UPDATES"
                 ),
             ]
         ]
@@ -69,7 +69,7 @@ async def play(_, m: Message):
     chat_id = m.chat.id
     if replied:
         if replied.audio or replied.voice:
-            suhu = await replied.reply("📥 **downloading audio...**")
+            suhu = await replied.reply("📥 **𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙸𝙽𝙶 𝙰𝚄𝙳𝙸𝙾...**")
             dl = await replied.download()
             link = replied.link
             if replied.audio:
@@ -84,7 +84,7 @@ async def play(_, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **Track added to the queue**\n\n🏷 **Name:** [{songname}]({link})\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                    caption=f"💡 **𝚃𝚁𝙰𝙲𝙺 𝙰𝙳𝙳𝙴𝙳 𝚃𝙾 𝚃𝙷𝙴 𝚀𝚄𝙴𝚄𝙴**\n\n🏷 **𝙽𝙰𝙼𝙴:** [{songname}]({link})\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}\n🔢 **𝙰𝚃 𝙿𝙾𝚂𝙸𝚃𝙸𝙾𝙽 »** `{pos}`",
                     reply_markup=keyboard,
                 )
             else:
@@ -99,26 +99,26 @@ async def play(_, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_2}",
-                    caption=f"💡 **music streaming started.**\n\n🏷 **Name:** [{songname}]({link})\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {m.from_user.mention()}",
+                    caption=f"💡 **𝙼𝚄𝚂𝙸𝙲 𝚂𝚃𝚁𝙴𝙰𝙼 𝚂𝚃𝙰𝚁𝚃𝙴𝙳.**\n\n🏷 **𝙽𝙰𝙼𝙴:** [{songname}]({link})\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n💡 **𝚂𝚃𝙰𝚃𝚄𝚂:** `𝙿𝙻𝙰𝚈𝙸𝙽𝙶`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}",
                     reply_markup=keyboard,
                 )
         else:
             if len(m.command) < 2:
                 await m.reply(
-                    "» reply to an **audio file** or **give something to search.**"
+                    "» 𝚁𝙴𝙿𝙻𝚈 𝚃𝙾 𝙰𝙽 **𝙰𝚄𝙳𝙸𝙾 𝙵𝙸𝙻𝙴** 𝙾𝚁 **𝙶𝙸𝚅𝙴 𝚂𝙾𝙼𝙴𝚃𝙷𝙸𝙽𝙶 𝚃𝙾 𝚂𝙴𝙰𝚁𝙲𝙷.**"
                 )
             else:
-                suhu = await m.reply("🔎 **searching...**")
+                suhu = await m.reply("🔎 **𝚂𝙴𝙰𝚁𝙲𝙷𝙸𝙽𝙶...**")
                 query = m.text.split(None, 1)[1]
                 search = ytsearch(query)
                 if search == 0:
-                    await suhu.edit("❌ **no results found.**")
+                    await suhu.edit("❌ **𝙽𝙾 𝚁𝙴𝚂𝚄𝙻𝚃𝚂 𝙵𝙾𝚄𝙽𝙳.**")
                 else:
                     songname = search[0]
                     url = search[1]
                     veez, ytlink = await ytdl(url)
                     if veez == 0:
-                        await suhu.edit(f"❌ yt-dl issues detected\n\n» `{ytlink}`")
+                        await suhu.edit(f"❌ 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙸𝚂𝚂𝚄𝙴 𝙳𝙴𝚃𝙴𝙲𝚃𝙴𝙳\n\n» `{ytlink}`")
                     else:
                         if chat_id in QUEUE:
                             pos = add_to_queue(
@@ -127,7 +127,7 @@ async def play(_, m: Message):
                             await suhu.delete()
                             await m.reply_photo(
                                 photo=f"{IMG_1}",
-                                caption=f"💡 **Track added to the queue**\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                                caption=f"💡 **𝚃𝚁𝙰𝙲𝙺 𝙰𝙳𝙳𝙴𝙳 𝚃𝙾 𝚀𝚄𝙴𝚄𝙴**\n\n🏷 **𝙽𝙰𝙼𝙴:** [{songname}]({url})\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}\n🔢 **𝙰𝚃 𝙿𝙾𝚂𝙸𝚃𝙸𝙾𝙽 »** `{pos}`",
                                 reply_markup=keyboard,
                             )
                         else:
@@ -143,36 +143,36 @@ async def play(_, m: Message):
                                 await suhu.delete()
                                 await m.reply_photo(
                                     photo=f"{IMG_2}",
-                                    caption=f"💡 **music streaming started.**\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {m.from_user.mention()}",
+                                    caption=f"💡 **𝙼𝚄𝚂𝙸𝙲 𝚂𝚃𝚁𝙴𝙰𝙼 𝚂𝚃𝙰𝚁𝚃𝙴𝙳.**\n\n🏷 **𝙽𝙰𝙼𝙴:** [{songname}]({url})\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n💡 **𝚂𝚃𝙰𝚃𝚄𝚂:** `𝙿𝙻𝙰𝚈𝙸𝙽𝙶`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}",
                                     reply_markup=keyboard,
                                 )
                             except Exception as ep:
-                                await m.reply_text(f"🚫 error: `{ep}`")
+                                await m.reply_text(f"🚫 𝙴𝚁𝚁𝙾𝚁: `{ep}`")
 
     else:
         if len(m.command) < 2:
             await m.reply(
-                "» reply to an **audio file** or **give something to search.**"
+                "» 𝚁𝙴𝙿𝙻𝚈 𝚃𝙾 𝙰𝙽 **𝙰𝚄𝙳𝙸𝙾 𝙵𝙸𝙻𝙴** 𝙾𝚁 **𝙶𝙸𝚅𝙴 𝚂𝙾𝙼𝙴𝚃𝙷𝙸𝙽𝙶 𝚃𝙾 𝚂𝙴𝙰𝚁𝙲𝙷.**"
             )
         else:
-            suhu = await m.reply("🔎 **searching...**")
+            suhu = await m.reply("🔎 **𝚂𝙴𝙰𝚁𝙲𝙷𝙸𝙽𝙶...**")
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             if search == 0:
-                await suhu.edit("❌ **no results found.**")
+                await suhu.edit("❌ **𝙽𝙾 𝚁𝙴𝚂𝚄𝙻𝚃𝚂 𝙵𝙾𝚄𝙽𝙳.**")
             else:
                 songname = search[0]
                 url = search[1]
                 veez, ytlink = await ytdl(url)
                 if veez == 0:
-                    await suhu.edit(f"❌ yt-dl issues detected\n\n» `{ytlink}`")
+                    await suhu.edit(f"❌ 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙸𝚂𝚂𝚄𝙴 𝙳𝙴𝚃𝙴𝙲𝚃𝙴𝙳\n\n» `{ytlink}`")
                 else:
                     if chat_id in QUEUE:
                         pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
                         await suhu.delete()
                         await m.reply_photo(
                             photo=f"{IMG_1}",
-                            caption=f"💡 **Track added to the queue**\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                            caption=f"💡 **𝚃𝚁𝙰𝙲𝙺 𝙰𝙳𝙳𝙴𝙳 𝚃𝙾 𝚃𝙷𝙴 𝚀𝚄𝙴𝚄𝙴**\n\n🏷 **𝙽𝙰𝙼𝙴:** [{songname}]({url})\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}\n🔢 **𝙰𝚃 𝙿𝙾𝚂𝙸𝚃𝙸𝙾𝙽 »** `{pos}`",
                             reply_markup=keyboard,
                         )
                     else:
@@ -188,26 +188,26 @@ async def play(_, m: Message):
                             await suhu.delete()
                             await m.reply_photo(
                                 photo=f"{IMG_2}",
-                                caption=f"💡 **music streaming started.**\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {m.from_user.mention()}",
+                                caption=f"💡 **𝙼𝚄𝚂𝙸𝙲 𝚂𝚃𝚁𝙴𝙰𝙼 𝚂𝚃𝙰𝚁𝚃𝙴𝙳.**\n\n🏷 **Name:** [{songname}]({url})\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n💡 **𝚂𝚃𝙰𝚃𝚄𝚂:** `𝙿𝙻𝙰𝚈𝙸𝙽𝙶`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}",
                                 reply_markup=keyboard,
                             )
                         except Exception as ep:
-                            await m.reply_text(f"🚫 error: `{ep}`")
+                            await m.reply_text(f"🚫 𝙴𝚁𝚁𝙾𝚁: `{ep}`")
 
 
 # stream is used for live streaming only
 
-@Client.on_message(command(["stream", f"stream@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["stream", f"stream@SNEHABHI_VIDEOBOT"]) & other_filters)
 async def stream(_, m: Message):
 
     keyboard = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/SNEHABHI_SERVER"
                 ),
                 InlineKeyboardButton(
-                    text="🌻 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    text="🌻 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/SNEHABHI_UPDATES"
                 ),
             ]
         ]
@@ -215,10 +215,10 @@ async def stream(_, m: Message):
 
     chat_id = m.chat.id
     if len(m.command) < 2:
-        await m.reply("» give me a live-link/m3u8 url/youtube link to stream.")
+        await m.reply("» .")
     else:
         link = m.text.split(None, 1)[1]
-        suhu = await m.reply("🔄 **processing stream...**")
+        suhu = await m.reply("🔄 **𝚂𝚃𝚁𝙴𝙰𝙼𝙸𝙽𝙶 𝙹𝙾𝙸𝙽 @SNEHABHI_UPDATES...**")
 
         regex = r"^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+"
         match = re.match(regex, link)
@@ -229,14 +229,14 @@ async def stream(_, m: Message):
             veez = 1
 
         if veez == 0:
-            await suhu.edit(f"❌ yt-dl issues detected\n\n» `{ytlink}`")
+            await suhu.edit(f"❌ 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙸𝚂𝚂𝚄𝙴 𝙳𝙴𝚃𝙴𝙲𝚃𝙴𝙳\n\n» `{ytlink}`")
         else:
             if chat_id in QUEUE:
                 pos = add_to_queue(chat_id, "Radio", livelink, link, "Audio", 0)
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **Track added to the queue**\n\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                    caption=f"💡 **𝚃𝚁𝙰𝙲𝙺 𝙰𝙳𝙳𝙴𝙳 𝚃𝙾 𝚃𝙷𝙴 𝚀𝚄𝙴𝚄𝙴**\n\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}\n🔢 **𝙰𝚃 𝙿𝙾𝚂𝙸𝚃𝙸𝙾𝙽 »** `{pos}`",
                     reply_markup=keyboard,
                 )
             else:
@@ -252,8 +252,8 @@ async def stream(_, m: Message):
                     await suhu.delete()
                     await m.reply_photo(
                         photo=f"{IMG_2}",
-                        caption=f"💡 **[Radio live]({link}) stream started.**\n\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {m.from_user.mention()}",
+                        caption=f"💡 **[Radio live]({link})   𝙼𝚄𝚂𝙸𝙲 𝚂𝚃𝚁𝙴𝙰𝙼 𝚂𝚃𝙰𝚁𝚃𝙴𝙳.**\n\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n💡 **𝚂𝚃𝙰𝚃𝚄𝚂:** `𝙿𝙻𝙰𝚈𝙸𝙽𝙶`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}",
                         reply_markup=keyboard,
                     )
                 except Exception as ep:
-                    await m.reply_text(f"🚫 error: `{ep}`")
+                    await m.reply_text(f"🚫 𝙴𝚁𝚁𝙾𝚁: `{ep}`")
