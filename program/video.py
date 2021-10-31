@@ -1,4 +1,4 @@
-# Copyright (C) 2021 By Veez Music-Project
+# Copyright (C) 2021 By SNEHABHI VIDEO PLAYER
 # Commit Start Date 20/10/2021
 # Finished On 28/10/2021
 
@@ -55,17 +55,17 @@ async def ytdl(link):
         return 0, stderr.decode()
 
 
-@Client.on_message(command(["vplay", f"vplay@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["vplay", f"vplay@SNEHABHI_VIDEOBOT"]) & other_filters)
 async def vplay(client, m: Message):
 
     keyboard = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/SNEHABHI_SERVER"
                 ),
                 InlineKeyboardButton(
-                    text="🌻 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    text="🌻 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/SNEHABHI_UPDATES"
                 ),
             ]
         ]
@@ -75,7 +75,7 @@ async def vplay(client, m: Message):
     chat_id = m.chat.id
     if replied:
         if replied.video or replied.document:
-            loser = await replied.reply("📥 **downloading video...**")
+            loser = await replied.reply("📥 **𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙸𝙽𝙶 𝙰𝚄𝙳𝙸𝙾...**")
             dl = await replied.download()
             link = replied.link
             if len(m.command) < 2:
@@ -100,7 +100,7 @@ async def vplay(client, m: Message):
                 await loser.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **Track added to the queue**\n\n🏷 **Name:** [{songname}]({link})\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                    caption=f"💡 **𝚃𝚁𝙰𝙲𝙺 𝙰𝙳𝙳𝙴𝙳 𝚃𝙾 𝚃𝙷𝙴 𝚀𝚄𝙴𝚄𝙴**\n\n🏷 **𝙽𝙰𝙼𝙴:** [{songname}]({link})\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}\n🔢 **𝙰𝚃 𝙿𝙾𝚂𝙸𝚃𝙸𝙾𝙽 »** `{pos}`",
                     reply_markup=keyboard,
                 )
             else:
@@ -119,28 +119,28 @@ async def vplay(client, m: Message):
                 await loser.delete()
                 await m.reply_photo(
                     photo=f"{IMG_2}",
-                    caption=f"💡 **video streaming started.**\n\n🏷 **Name:** [{songname}]({link})\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {m.from_user.mention()}",
+                    caption=f"💡 **𝚂𝚃𝚁𝙴𝙰𝙼𝙸𝙽𝙶 𝚂𝚃𝙰𝚁𝚃𝙴𝙳.**\n\n🏷 **𝙽𝙰𝙼𝙴:** [{songname}]({link})\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n💡 **𝚂𝚃𝙰𝚃𝚄𝚂:** `𝙿𝙻𝙰𝚈𝙸𝙽𝙶`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}",
                     reply_markup=keyboard,
                 )
         else:
             if len(m.command) < 2:
                 await m.reply(
-                    "» reply to an **video file** or **give something to search.**"
+                    "» 𝚁𝙴𝙿𝙻𝚈 𝚃𝙾 𝙰𝙽 **𝚅𝙸𝙳𝙴𝙾 𝙵𝙸𝙻𝙴** 𝙾𝚁 **𝙶𝙸𝚅𝙴 𝚂𝙾𝙼𝙴𝚃𝙷𝙸𝙽𝙶 𝚃𝙾 𝚂𝙴𝙰𝚁𝙲𝙷.**"
                 )
             else:
-                loser = await m.reply("🔎 **searching...**")
+                loser = await m.reply("🔎 **𝚂𝙴𝙰𝚁𝙲𝙷𝙸𝙽𝙶...**")
                 query = m.text.split(None, 1)[1]
                 search = ytsearch(query)
                 Q = 720
                 amaze = HighQualityVideo()
                 if search == 0:
-                    await loser.edit("❌ **no results found.**")
+                    await loser.edit("❌ **𝙽𝙾 𝚁𝙴𝚂𝚄𝙻𝚃𝚂 𝙵𝙾𝚄𝙽𝙳.**")
                 else:
                     songname = search[0]
                     url = search[1]
                     veez, ytlink = await ytdl(url)
                     if veez == 0:
-                        await loser.edit(f"❌ yt-dl issues detected\n\n» `{ytlink}`")
+                        await loser.edit(f"❌ 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙸𝚂𝚂𝚄𝙴 𝙳𝙴𝚃𝙴𝙲𝚃𝙴𝙳\n\n» `{ytlink}`")
                     else:
                         if chat_id in QUEUE:
                             pos = add_to_queue(
@@ -149,7 +149,7 @@ async def vplay(client, m: Message):
                             await loser.delete()
                             await m.reply_photo(
                                 photo=f"{IMG_1}",
-                                caption=f"💡 **Track added to the queue**\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                                caption=f"💡 **𝚃𝚁𝙰𝙲𝙺 𝙰𝙳𝙳𝙴𝙳 𝚃𝙾 𝚃𝙷𝙴 𝚀𝚄𝙴𝚄𝙴**\n\n🏷 **𝙽𝙰𝙼𝙴:** [{songname}]({url})\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}\n🔢 **𝙰𝚃 𝙿𝙾𝚂𝙸𝚃𝙸𝙾𝙽 »** `{pos}`",
                                 reply_markup=keyboard,
                             )
                         else:
@@ -163,7 +163,7 @@ async def vplay(client, m: Message):
                                 await loser.delete()
                                 await m.reply_photo(
                                     photo=f"{IMG_2}",
-                                    caption=f"💡 **video streaming started.**\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {m.from_user.mention()}",
+                                    caption=f"💡 **𝚅𝙸𝙳𝙴𝙾 𝚂𝚃𝚁𝙴𝙰𝙼𝙸𝙽𝙶 𝚂𝚃𝙰𝚁𝚃𝙴𝙳.**\n\n🏷 **𝙽𝙰𝙼𝙴:** [{songname}]({url})\n💭 **𝙲𝙷𝙰𝚃** `{chat_id}`\n💡 **𝚂𝚃𝙰𝚃𝚄𝚂:** `𝙿𝙻𝙰𝚈𝙸𝙽𝙶`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}",
                                     reply_markup=keyboard,
                                 )
                             except Exception as ep:
@@ -172,29 +172,29 @@ async def vplay(client, m: Message):
     else:
         if len(m.command) < 2:
             await m.reply(
-                "» reply to an **video file** or **give something to search.**"
+                "» 𝚁𝙴𝙿𝙻𝚈 𝚃𝙾 𝙰𝙽 **𝚅𝙸𝙳𝙴𝙾 𝙵𝙸𝙻𝙴** 𝙾𝚁 **𝙶𝙸𝚅𝙴 𝚂𝙾𝙼𝙴𝚃𝙷𝙸𝙽𝙶 𝚃𝙾 𝚂𝙴𝙰𝚁𝙲𝙷.**"
             )
         else:
-            loser = await m.reply("🔎 **searching...**")
+            loser = await m.reply("🔎 **𝚂𝙴𝙰𝚁𝙲𝙷𝙸𝙽𝙶...**")
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             Q = 720
             amaze = HighQualityVideo()
             if search == 0:
-                await loser.edit("❌ **no results found.**")
+                await loser.edit("❌ **𝙽𝙾 𝚁𝙴𝚂𝚄𝙻𝚃𝚂 𝙵𝙾𝚄𝙽𝙳.**")
             else:
                 songname = search[0]
                 url = search[1]
                 veez, ytlink = await ytdl(url)
                 if veez == 0:
-                    await loser.edit(f"❌ yt-dl issues detected\n\n» `{ytlink}`")
+                    await loser.edit(f"❌ 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙸𝚂𝚂𝚄𝙴 𝙳𝙴𝚃𝙴𝙲𝚃𝙴𝙳\n\n» `{ytlink}`")
                 else:
                     if chat_id in QUEUE:
                         pos = add_to_queue(chat_id, songname, ytlink, url, "Video", Q)
                         await loser.delete()
                         await m.reply_photo(
                             photo=f"{IMG_1}",
-                            caption=f"💡 **Track added to the queue**\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                            caption=f"💡 **𝚃𝚁𝙰𝙲𝙺 𝙰𝙳𝙳𝙴𝙳 𝚃𝙾 𝚃𝙷𝙴 𝚀𝚄𝙴𝚄𝙴**\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
                             reply_markup=keyboard,
                         )
                     else:
@@ -208,24 +208,25 @@ async def vplay(client, m: Message):
                             await loser.delete()
                             await m.reply_photo(
                                 photo=f"{IMG_2}",
-                                caption=f"💡 **video streaming started.**\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {m.from_user.mention()}",
+                                caption=f"💡 **𝚅𝙸𝙳𝙴𝙾 𝚂𝚃𝚁𝙴𝙰𝙼𝙸𝙽𝙶 𝚂𝚃𝙰𝚁𝚃𝙴𝙳.**\n\n🏷 **𝙽𝙰𝙼𝙴:** [{songname}]({url})\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n💡 **𝚂𝚃𝙰𝚃𝚄𝚂:** `𝙿𝙻𝙰𝚈𝙸𝙽𝙶`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}",
                                 reply_markup=keyboard,
                             )
                         except Exception as ep:
-                            await m.reply_text(f"🚫 error: `{ep}`")
+                            await m.reply_text(f"🚫 𝙴𝚁𝚁𝙾𝚁: `{ep}`")
 
 
-@Client.on_message(command(["vstream", f"vstream@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["vstream", f"vstream@SNEHABHI_VIDEOBOT"]) & other_filters)
+
 async def vstream(client, m: Message):
 
     keyboard = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/SNEHABHI_SERVER"
                 ),
                 InlineKeyboardButton(
-                    text="🌻 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    text="🌻 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/SNEHABHI_UPDATES"
                 ),
             ]
         ]
@@ -238,7 +239,7 @@ async def vstream(client, m: Message):
         if len(m.command) == 2:
             link = m.text.split(None, 1)[1]
             Q = 720
-            loser = await m.reply("🔄 **processing stream...**")
+            loser = await m.reply("🔄 **𝙿𝚁𝙾𝙲𝙴𝚂𝚂𝙸𝙽𝙶 𝚂𝚃𝚁𝙴𝙰𝙼 @SNEHABHI_UPDATES...**")
         elif len(m.command) == 3:
             op = m.text.split(None, 1)[1]
             link = op.split(None, 1)[0]
@@ -250,7 +251,7 @@ async def vstream(client, m: Message):
                 await m.reply(
                     "» __only 720, 480, 360 allowed__ \n💡 **now streaming video in 720p**"
                 )
-            loser = await m.reply("🔄 **processing stream...**")
+            loser = await m.reply("🔄 **𝙿𝚁𝙾𝙲𝙴𝚂𝚂𝙸𝙽𝙶 𝚂𝚃𝚁𝙴𝙰𝙼 @SNEHABHI_UPDATES...**")
         else:
             await m.reply("**/vstream {link} {720/480/360}**")
 
@@ -263,14 +264,14 @@ async def vstream(client, m: Message):
             veez = 1
 
         if veez == 0:
-            await loser.edit(f"❌ yt-dl issues detected\n\n» `{ytlink}`")
+            await loser.edit(f"❌ 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙸𝚂𝚂𝚄𝙴 𝙳𝙴𝚃𝙴𝙲𝚃𝙴𝙳\n\n» `{ytlink}`")
         else:
             if chat_id in QUEUE:
                 pos = add_to_queue(chat_id, "Live Stream", livelink, link, "Video", Q)
                 await loser.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **Track added to the queue**\n\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}\n🔢 **At position »** `{pos}`",
+                    caption=f"💡 **𝚃𝚁𝙰𝙲𝙺 𝙰𝙳𝙳𝙴𝙳 𝚃𝙾 𝚃𝙷𝙴 𝚀𝚄𝙴𝚄𝙴**\n\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}\n🔢 **𝙰𝚃 𝙿𝙾𝚂𝙸𝚃𝙸𝙾𝙽 »** `{pos}`",
                     reply_markup=keyboard,
                 )
             else:
@@ -290,8 +291,8 @@ async def vstream(client, m: Message):
                     await loser.delete()
                     await m.reply_photo(
                         photo=f"{IMG_2}",
-                        caption=f"💡 **[Live stream video]({link}) started.**\n\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {m.from_user.mention()}",
+                        caption=f"💡 **[Live stream video]({link}) started.**\n\n💭 **𝙲𝙷𝙰𝚃:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙱𝚈:** {m.from_user.mention()}",
                         reply_markup=keyboard,
                     )
                 except Exception as ep:
-                    await m.reply_text(f"🚫 error: `{ep}`")
+                    await m.reply_text(f"🚫 𝙴𝚁𝚁𝙾𝚁: `{ep}`")
